@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 USERNAME = os.environ.get('PERSONAL_USERNAME')
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'user',
     'blog',
     'ckeditor',
@@ -186,3 +188,15 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+
+GRAPHENE = {
+    'SCHEMA': 'personal_django.schema.schema'
+}
+
+STATIC_ROOT = STATIC_DIR
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'sunken_podcast/static'), ]
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+
+SITE_DOMAIN = os.environ.get('PERSONAL_SITE_DOMAIN')
