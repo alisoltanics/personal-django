@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 
 ## Environment variables
-PERSONAL_USERNAME, PERSONAL_PASSWORD, PERSONAL_SECRET_KEY
+PERSONAL_USERNAME, PERSONAL_PASSWORD, PERSONAL_SECRET_KEY, PERSONAL_SITE_DOMAIN
 
 ## Create database tables
 
