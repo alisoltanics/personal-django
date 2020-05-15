@@ -14,6 +14,10 @@ class PostType(DjangoObjectType):
 
 class Query(graphene.AbstractType):
     published_posts = graphene.List(PostType)
+    post = graphene.Field(
+        PostType,
+        id=graphene.Int(),
+    )
 
     def resolve_published_posts(self, args):
         """
@@ -29,3 +33,19 @@ class Query(graphene.AbstractType):
             }
         """
         return Post.objects.filter(published=True)
+
+    def resolve_post(self, info, **kwargs):
+        """
+        Query example:
+            query {
+                post(id: 1) {
+                    id,
+                    title,
+                    description
+                    image
+                    createDate
+                }
+            }
+        """
+        id = kwargs.get('id')
+        return Post.objects.get(pk=id)
